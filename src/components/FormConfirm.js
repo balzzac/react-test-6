@@ -15,6 +15,7 @@ export default class FormConfirm extends Component {
     e.preventDefault();
     this.props.prevStep();
   };
+
   render() {
     const {
       values: {
@@ -28,11 +29,13 @@ export default class FormConfirm extends Component {
       },
     } = this.props;
 
+    const valsAreOk =
+      firstName && lastName && email && phoneNumber ? true : false;
     return (
       <MuiThemeProvider>
         <form className="l-form">
           <AppBar
-            title="Confirm User Data. Step 3 out of 4"
+            title="Confirm User Data. Step 3 out of 3"
             showMenuIconButton={false}
           />
 
@@ -51,13 +54,14 @@ export default class FormConfirm extends Component {
             style={styles.button}
             onClick={this.back}
           />
-
-          <RaisedButton
-            label="Confirm and Continue"
-            primary={true}
-            style={styles.button}
-            onClick={this.continue}
-          />
+          {valsAreOk && (
+            <RaisedButton
+              label="Confirm and Continue"
+              primary={true}
+              style={styles.button}
+              onClick={this.continue}
+            />
+          )}
         </form>
       </MuiThemeProvider>
     );

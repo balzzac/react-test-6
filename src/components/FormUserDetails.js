@@ -15,7 +15,7 @@ export default class FormUserDetails extends Component {
       <MuiThemeProvider>
         <form className="l-form">
           <AppBar
-            title="Enter User Details Step 1 out of 4"
+            title="Enter User Details. Step 1 out of 3"
             showMenuIconButton={false}
           />
           <TextField
